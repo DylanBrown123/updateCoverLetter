@@ -24,7 +24,7 @@ def print_menu():
     print(67 * "-")
 
 # Function description: Open & Read Text File (CV), if user chose 2, updates file contents to current date
-#            Called in:
+#           Called in: readFile(),
 def replaceLoop(oldVal,newVal,file_name):
     fin = open(file_name, "r")
     # Loop through string & replace oldDate with current_date
@@ -40,7 +40,7 @@ def replaceLoop(oldVal,newVal,file_name):
     fout.close()
 
 # Function description: Open & Read Text File (CV), if user chose 2, updates file contents to current date.
-#            Called in: Menu while loop, option 1 & 2
+#            Called in: Menu while loop, option 1 [getCV()] & option 2
 def readFile(userInput):
     if ".txt" not in userInput:     #If user input file name does not contain TXT extension, append it.
         userInput += ".txt"
@@ -89,7 +89,7 @@ def lastCharSlash(string):
 
 fin = None            ##Prevents 'undefined' error, in the case of skipping option 1 & going option 2. ??Might move up.
 
-## While loop description: Loop will keep going until loop = False; Contains menu actions
+## While loop description: Menu loop. Will keep going until loop = False; Contains menu actions
 ##                  Calls: print_menu(), readFile(), getCV(), shutil.copyfile
 loop = True
 while loop:
@@ -103,8 +103,9 @@ while loop:
     elif choice == "1":
         print("Choice 1 - open CV file - has been selected.")
 
-        # Method descr: - Open/read CV - Note may circle back and add a passable param to specify which CV to open
+        #   Method descr: - Open/read CV - Note may circle back and add a passable param to specify which CV to open
         # Calls function: - readFile
+        #      Called in: Menu While loop
         ## ??? Note, might be redundant, check back.
         def getCV():
             print("\nType 'h' for help.\n")
